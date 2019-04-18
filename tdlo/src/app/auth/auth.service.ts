@@ -14,9 +14,9 @@ export class AuthService {
     console.log("I am Auth Service")  
   }
 
-  setCors(headers: HttpHeaders) {
-     headers.append('Access-Control-Allow-Origin', '*');
-  }
+  // setCors(headers: HttpHeaders) {
+  //    headers.append('Access-Control-Allow-Origin', '*');
+  // }
  
 
   post(url) {

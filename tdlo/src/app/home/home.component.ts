@@ -29,9 +29,7 @@ export class HomeComponent implements OnInit {
 
   submitProfile() {
     //console.log(this.profileForm.value);
-    this.gs.get("api/user/baseinfo",this.profileForm.value).subscribe((data:any)=>{
-      console.log(data);
-    })
+    this.gs.get("api/user/baseinfo");
   }
 
 }

@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {path:"auth", loadChildren:"./auth/auth.module#AuthModule"},
+  {path:"learn", loadChildren:"./learning/learning.module#LearningModule"},
   {path:"", component:HomeComponent},
 ];
 

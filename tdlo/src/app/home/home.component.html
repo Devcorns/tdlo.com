@@ -1,10 +1,8 @@
-<p>
-  TDLO
-</p>
 
-<form [formGroup]="profileForm" (ngSubmit)="submitProfile()">
+
+<form [formGroup]="companyProfileForm" (ngSubmit)="searchCompanyProfile()">
   
-  <input type="text" placeholder="Full Name" formControlName="fullname">
+  <!-- <input type="text" placeholder="Full Name" formControlName="fullname">
   <input type="text" placeholder="Mobile Number" formControlName="mobileno">
   <input type="text" placeholder="Full Company Name" formControlName="fullcompanyname">
   <input type="text" placeholder="Full Company Address" formControlName="fullcompanyaddr">
@@ -16,7 +14,15 @@
     <option value="20000">20000</option>
     <option value="50000" >50000</option>
     <option value="100000">100000</option>
-  </select>
+  </select> -->
+  <input type="text" placeholder="Name" formControlName="compnyName"   (input)="valueChange($event.target.value)">
   
   <button type="submit">Submit</button>
-</form>
+</form> 
+
+
+
+
+
+
+

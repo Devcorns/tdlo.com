@@ -9,17 +9,18 @@ import { GlobalService } from '../services/global.service';
 })
 export class HomeComponent implements OnInit {
 
-  profileForm:FormGroup;
+  companyProfileForm:FormGroup;
 
   constructor(private fb:FormBuilder,private gs:GlobalService) {
 
-    this.profileForm  =  this.fb.group({
-      fullname : ['',Validators.required],
-      mobileno : ['',Validators.required],
-      fullcompanyname : ['',Validators.required],
-      fullcompanyaddr : ['',Validators.required],
-      place : ['',Validators.required],
-      aslt:[0,Validators.required]
+    this.companyProfileForm  =  this.fb.group({
+      // fullname : ['',Validators.required],
+      // mobileno : ['',Validators.required],
+      // fullcompanyname : ['',Validators.required],
+      // fullcompanyaddr : ['',Validators.required],
+      // place : ['',Validators.required],
+      // aslt:[0,Validators.required]
+      compnyName:['',Validators.required]
     })
 
    }
@@ -27,9 +28,16 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  submitProfile() {
-    //console.log(this.profileForm.value);
-    this.gs.get("api/user/baseinfo");
+  searchCompanyProfile() {
+    console.log(this.companyProfileForm.value);
+    this.gs.get("api/user/companyList");
+  }
+
+  valueChange(val) {
+
+    console.log(val);
+    this.gs.get("api/user/companyList");
+
   }
 
 }

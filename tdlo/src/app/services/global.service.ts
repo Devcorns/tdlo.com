@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class GlobalService {
 //public headers = new HttpHeaders({'Content-Type': 'application/json'});
-configUrl = 'http://localhost:3000/api/user/baseinfo';
+configUrl = 'http://localhost:3000/';
 
 constructor(private http:HttpClient) {
   console.log("I am Auth Service")  
@@ -26,7 +26,7 @@ get(url) {
   let headers: HttpHeaders = this.setCors();
   console.log(headers);
   
-  this.http.get(this.configUrl,{headers: headers}).subscribe(function(res) {
+  this.http.get(this.configUrl+url,{headers: headers}).subscribe(function(res) {
    
     console.log("Gets Called", res);
 
@@ -40,7 +40,7 @@ post(url) {
 
   let headers: HttpHeaders = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
   console.log(headers);
-  this.http.get(this.configUrl,{headers: headers}).subscribe(function(res) {
+  this.http.get(this.configUrl+url,{headers: headers}).subscribe(function(res) {
    
     console.log("Get Called", res);
 

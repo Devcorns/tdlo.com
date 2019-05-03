@@ -10,7 +10,7 @@ export class GlobalService {
 configUrl = 'http://localhost:3000/';
 
 constructor(private http:HttpClient) {
-  console.log("I am Auth Service")  
+  console.log("I am in Global Service")  
 }
 
 setCors() {
@@ -18,7 +18,7 @@ setCors() {
 }
 
 
-get(url) {
+get(url,data) {
    
   //  this.setCors(this.headers);
   //  console.log(this.headers); 
@@ -26,10 +26,10 @@ get(url) {
   let headers: HttpHeaders = this.setCors();
   console.log(headers);
   
-  this.http.get(this.configUrl+url,{headers: headers}).subscribe(function(res) {
+  this.http.get(this.configUrl+url,{headers: headers,params:data}).subscribe(async function(res) {
    
     console.log("Gets Called", res);
-
+    await res;
  });
 
 }
@@ -42,7 +42,7 @@ post(url) {
   console.log(headers);
   this.http.get(this.configUrl+url,{headers: headers}).subscribe(function(res) {
    
-    console.log("Get Called", res);
+    console.log("Post Called", res);
 
  })
 

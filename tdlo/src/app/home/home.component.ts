@@ -28,15 +28,15 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  searchCompanyProfile() {
+  searchCompanyProfile(val) {
     console.log(this.companyProfileForm.value);
-    this.gs.get("api/user/companyList");
+    this.gs.get("api/user/companyList",val);
   }
 
-  valueChange(val) {
+  async valueChange(val) {
 
     console.log(val);
-    this.gs.get("api/user/companyList");
+    await this.gs.get("api/user/companyList",val);
 
   }
 

@@ -26,11 +26,7 @@ get(url,data) {
   let headers: HttpHeaders = this.setCors();
   console.log(headers);
   
-  this.http.get(this.configUrl+url,{headers: headers,params:data}).subscribe(async function(res) {
-   
-    console.log("Gets Called", res);
-    await res;
- });
+  return this.http.get(this.configUrl+url,{headers: headers,params:data});
 
 }
 post(url) {

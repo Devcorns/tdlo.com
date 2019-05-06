@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
 import { FormBuilder,FormControl,FormGroup, Validators } from '@angular/forms';
 import { GlobalService } from '../services/global.service';
 
@@ -8,7 +8,7 @@ import { GlobalService } from '../services/global.service';
   styleUrls: ['./home.component.sass']
 })
 export class HomeComponent implements OnInit {
-
+  myModel:any;
   companyProfileForm:FormGroup;
 
   constructor(private fb:FormBuilder,private gs:GlobalService) {
@@ -33,11 +33,14 @@ export class HomeComponent implements OnInit {
     this.gs.get("api/user/companyList",val);
   }
 
-  async valueChange(val) {
+   valueChange(val) {
 
-    console.log(val);
-    await this.gs.get("api/user/companyList",val);
-
+      this.gs.get("api/user/companyList",val.toUpperCase()).subscribe(function(res) {
+   
+        console.log("Gets Called", res);
+        console.log(this.myModel);
+      });
+    
   }
 
 }

@@ -1,6 +1,9 @@
 import { Component, OnInit, ɵConsole } from '@angular/core';
 import { FormBuilder,FormControl,FormGroup, Validators } from '@angular/forms';
 import { GlobalService } from '../services/global.service';
+import { createHostListener } from '@angular/compiler/src/core';
+import { isArray } from 'util';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-home',
@@ -8,18 +11,13 @@ import { GlobalService } from '../services/global.service';
   styleUrls: ['./home.component.sass']
 })
 export class HomeComponent implements OnInit {
-  myModel:any;
+  
+  companyList = [];
   companyProfileForm:FormGroup;
 
   constructor(private fb:FormBuilder,private gs:GlobalService) {
-
+    
     this.companyProfileForm  =  this.fb.group({
-      // fullname : ['',Validators.required],
-      // mobileno : ['',Validators.required],
-      // fullcompanyname : ['',Validators.required],
-      // fullcompanyaddr : ['',Validators.required],
-      // place : ['',Validators.required],
-      // aslt:[0,Validators.required]
       compnyName:['',Validators.required]
     })
 
@@ -28,19 +26,38 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  searchCompanyProfile(val) {
-    console.log(this.companyProfileForm.value);
-    this.gs.get("api/user/companyList",val);
-  }
+  // searchCompanyProfile(val) {
+  //   console.log(this.companyProfileForm.value);
+  // }
 
    valueChange(val) {
+    const currentClassObject = this;
+    currentClassObject.companyList = [];
+      this.gs.get("api/user/companyList",val.toUpperCase()).subscribe(function(res:any) {
+        
+        console.log("Gets Called", isArray(res),res.length);
+        
+        if(res.length) {
+          
+          for(let i =0;i<res.length;i++) {
+            
+            currentClassObject.companyList.push(res[i]);
 
-      this.gs.get("api/user/companyList",val.toUpperCase()).subscribe(function(res) {
-   
-        console.log("Gets Called", res);
-        console.log(this.myModel);
+          }
+  
+        }
+       
+         
       });
-    
+  }
+
+  selectCompany( data, id) {
+
+    console.log(data.target,id);
+    this.gs.get("api/user/get-company-details",id).subscribe(function(res:any) {
+      console.log(res)
+    });
+  
   }
 
 }

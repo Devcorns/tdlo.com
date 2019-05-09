@@ -1,6 +1,6 @@
 
 
-<form [formGroup]="companyProfileForm" (ngSubmit)="searchCompanyProfile()">
+<form [formGroup]="companyProfileForm" >
   
   <!-- <input type="text" placeholder="Full Name" formControlName="fullname">
   <input type="text" placeholder="Mobile Number" formControlName="mobileno">
@@ -17,11 +17,19 @@
   </select> -->
   <input type="text" placeholder="Name" formControlName="compnyName"   (input)="valueChange($event.target.value)">
   
-  <button type="submit">Submit</button>
+  <!-- <button type="submit">Submit</button> -->
 </form> 
 
-<input type="text"  [(ngModel)]="myModel">
+<!-- <input type="text"  [(ngModel)]="myModel" #ctrl="ngModel" > -->
 
+<ul *ngIf="companyList.length">
+  <li *ngFor="let item of companyList;let i = index;"  >
+    <a (click)="selectCompany($event,item._id)" > {{i}} {{item.name}}</a>
+  </li>
+</ul>
+<ul *ngIf="!companyList.length">
+    <li> Not Available </li>
+</ul>
 
 
 

@@ -25,7 +25,7 @@ get(url,data) {
 
   let headers: HttpHeaders = this.setCors();
   console.log(headers);
-  
+
   return this.http.get(this.configUrl+url,{headers: headers,params:data});
 
 }

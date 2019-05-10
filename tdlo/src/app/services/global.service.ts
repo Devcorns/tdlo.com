@@ -22,11 +22,11 @@ get(url,data) {
    
   //  this.setCors(this.headers);
   //  console.log(this.headers); 
-
+  console.log("gloabl service",url,typeof data)
   let headers: HttpHeaders = this.setCors();
   console.log(headers);
 
-  return this.http.get(this.configUrl+url,{headers: headers,params:data});
+  return this.http.get(this.configUrl+url,{headers: headers, params:{"search_term": data}});
 
 }
 post(url) {

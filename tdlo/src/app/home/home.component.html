@@ -1,57 +1,50 @@
 
+<div class="row">
+  <div class="col-lg-3">
+      <form [formGroup]="companyProfileForm" >
 
-<form [formGroup]="companyProfileForm" >
-  
-  <!-- <input type="text" placeholder="Full Name" formControlName="fullname">
-  <input type="text" placeholder="Mobile Number" formControlName="mobileno">
-  <input type="text" placeholder="Full Company Name" formControlName="fullcompanyname">
-  <input type="text" placeholder="Full Company Address" formControlName="fullcompanyaddr">
-  <input type="text" placeholder="Place" formControlName="place">
+          <input type="text" placeholder="Name" formControlName="compnyName"   (input)="valueChange($event.target.value)">
+        
+        </form> 
+  </div>
+  <div class="col-lg-9">
+    <router-outlet></router-outlet>
+      <!-- <ul *ngIf="companyList.length">
 
-  <select name="aslt" formControlName="aslt">
-    <option value="0" >Select What you want?</option>
-    <option value="10000">10000</option>
-    <option value="20000">20000</option>
-    <option value="50000" >50000</option>
-    <option value="100000">100000</option>
-  </select> -->
-  <input type="text" placeholder="Name" formControlName="compnyName"   (input)="valueChange($event.target.value)">
-  
-  <!-- <button type="submit">Submit</button> -->
-</form> 
-
-<!-- <input type="text"  [(ngModel)]="myModel" #ctrl="ngModel" > -->
-
-<ul *ngIf="companyList.length">
-  <li *ngFor="let item of companyList;let i = index;"  >
-    <a (click)="selectCompany($event,item._id)" > 
-      {{i}} 
-      {{item.name}}
-      {{item.strength}} 
-      {{item.origin}} 
-      {{item.tech}} 
-      {{item.dept}} 
-      {{item.empList}}
-      {{item.size}}
-      {{item.location}}
-      {{item.Nation}}
-      {{item.type}}
-    </a>
-  </li>
-</ul>
-<ul *ngIf="!companyList.length">
-    <li> Not Available </li>
-</ul>
-
-<div class="col-lg-9 offset-lg-3">
-  <app-comapny-profile ></app-comapny-profile>
-
-
-  <app-good-employee></app-good-employee>
-
-
-  <app-worst-employee></app-worst-employee>
+          <li *ngFor="let item of companyList;let i = index;"  >
+            
+            <a routerLink="company"> 
+        
+              {{i}} 
+              {{item.name}}
+              {{item.strength}} 
+              {{item.origin}} 
+              {{item.tech}} 
+              {{item.dept}} 
+              {{item.empList}}
+              {{item.size}}
+              {{item.location}}
+              {{item.Nation}}
+              {{item.type}}
+        
+            </a>
+        
+          </li>
+        
+        </ul>
+        
+        <ul *ngIf="!companyList.length">
+        
+            <li> Not Available </li>
+        
+        </ul> -->
+        
+  </div>
 </div>
+
+
+
+
 
 
 

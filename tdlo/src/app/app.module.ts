@@ -9,6 +9,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CommonComponentsComponent } from './common-components/common-components.component';
+import { ComapnyProfileComponent } from './comapny-profile/comapny-profile.component';
+import { ComapnyEmployeeComponent } from './comapny-employee/comapny-employee.component';
+import { GoodEmployeeComponent } from './good-employee/good-employee.component';
+import { WorstEmployeeComponent } from './worst-employee/worst-employee.component';
 
 
 
@@ -16,7 +20,11 @@ import { CommonComponentsComponent } from './common-components/common-components
   declarations: [
     AppComponent,
     HomeComponent,
-    CommonComponentsComponent
+    CommonComponentsComponent,
+    ComapnyProfileComponent,
+    ComapnyEmployeeComponent,
+    GoodEmployeeComponent,
+    WorstEmployeeComponent
   ],
   imports: [
     BrowserModule,

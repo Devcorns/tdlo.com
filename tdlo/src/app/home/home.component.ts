@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
   companyList = [];
   companyProfileForm:FormGroup;
 
+
+
   constructor(private fb:FormBuilder,private gs:GlobalService) {
     
     this.companyProfileForm  =  this.fb.group({

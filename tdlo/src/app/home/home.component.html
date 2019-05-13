@@ -24,12 +24,39 @@
 
 <ul *ngIf="companyList.length">
   <li *ngFor="let item of companyList;let i = index;"  >
-    <a (click)="selectCompany($event,item._id)" > {{i}} {{item.name}}</a>
+    <a (click)="selectCompany($event,item._id)" > 
+      {{i}} 
+      {{item.name}}
+      {{item.strength}} 
+      {{item.origin}} 
+      {{item.tech}} 
+      {{item.dept}} 
+      {{item.empList}}
+      {{item.size}}
+      {{item.location}}
+      {{item.Nation}}
+      {{item.type}}
+    </a>
   </li>
 </ul>
 <ul *ngIf="!companyList.length">
     <li> Not Available </li>
 </ul>
+
+<div class="col-lg-9 offset-lg-3">
+  <app-comapny-profile ></app-comapny-profile>
+
+
+  <app-good-employee></app-good-employee>
+
+
+  <app-worst-employee></app-worst-employee>
+</div>
+
+
+
+
+
 
 
 

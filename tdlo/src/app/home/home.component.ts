@@ -11,7 +11,7 @@ import { forEach } from '@angular/router/src/utils/collection';
   styleUrls: ['./home.component.sass']
 })
 export class HomeComponent implements OnInit {
-  
+  node = "";
   companyList = [];
   companyProfileForm:FormGroup;
 
@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
 
     console.log(data.target,id);
     this.gs.get("api/user/get-company-details",id).subscribe(function(res:any) {
-      console.log(res)
+      console.log("select Company",res)
     });
   
   }

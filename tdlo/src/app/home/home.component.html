@@ -1,46 +1,54 @@
-
 <div class="row">
+  
   <div class="col-lg-3">
+
       <form [formGroup]="companyProfileForm" >
 
-          <input type="text" placeholder="Name" formControlName="compnyName"   (input)="valueChange($event.target.value)">
+        <input type="text" placeholder="Name" formControlName="compnyName"   (input)="valueChange($event.target.value)">
         
-        </form> 
-  </div>
-  <div class="col-lg-9">
-    <router-outlet></router-outlet>
-      <!-- <ul *ngIf="companyList.length">
+      </form> 
+      <ul *ngIf="companyList.length">
 
-          <li *ngFor="let item of companyList;let i = index;"  >
+          <li *ngFor="let item of companyList;let i = index;" >
             
-            <a routerLink="company"> 
+            <a [routerLink]="['/company',item._id]" > 
         
-              {{i}} 
+              {{i}}
               {{item.name}}
-              {{item.strength}} 
-              {{item.origin}} 
-              {{item.tech}} 
-              {{item.dept}} 
+              <!-- {{item.strength}}
+              {{item.origin}}
+              {{item.tech}}
+              {{item.dept}}
               {{item.empList}}
               {{item.size}}
               {{item.location}}
               {{item.Nation}}
-              {{item.type}}
+              {{item.type}} -->
         
             </a>
         
           </li>
         
         </ul>
-        
+          
         <ul *ngIf="!companyList.length">
         
             <li> Not Available </li>
         
-        </ul> -->
-        
+        </ul>
+
   </div>
+  
+  <div class="col-lg-9">
+
+    <router-outlet></router-outlet>
+
+  </div>
+
 </div>
+
+
+
 
 
 

@@ -11,10 +11,12 @@ export class CompanyMainComponent implements OnInit {
 
   companyDetails = {};
   
-  parentMessage = "i am indian";
+
   
   constructor(private route: ActivatedRoute,private gs: GlobalService) {
-    
+
+    console.log(this.route.snapshot)
+
   }
 
   ngOnInit() {
@@ -24,8 +26,11 @@ export class CompanyMainComponent implements OnInit {
       let id: string = this.route.snapshot.params.id;
 
       this.gs.get("api/user/get-company-details",id).subscribe(function(res:any) {
+
         console.log("Get compnay details",res);
+        
         this.companyDetails = res;
+        
         this.parentMessage = "I am from india";
         
       });
@@ -33,9 +38,9 @@ export class CompanyMainComponent implements OnInit {
 
   }
 
-  ngOnChanges() {
-    this.parentMessage = "I am from india";
-  }
+ 
+
+ 
 
 
 }

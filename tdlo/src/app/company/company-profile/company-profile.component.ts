@@ -1,6 +1,8 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy,ChangeDetectorRef  } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy,ChangeDetectorRef, NgZone  } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GlobalService } from 'src/app/services/global.service';
+
+
 
 @Component({
   selector: 'app-company-profile',
@@ -10,26 +12,26 @@ import { GlobalService } from 'src/app/services/global.service';
 })
 export class CompanyProfileComponent implements OnInit {
 
-  companyDetails = [];
 
-  constructor(private route: ActivatedRoute,private gs:GlobalService) {
-  }
+   companyDetails = { name:"github"};
 
-ngOnInit() {
-
+  constructor(private route: ActivatedRoute,private gs:GlobalService,public cdr: ChangeDetectorRef) {
+    
     this.route.url.subscribe(url => {
-      
+      const currentClassObj = this;
       let id: string = this.route.snapshot.params.id;
 
-     console.log(id);
+     console.log("company-profile.component get id of company value",id);
      this.gs.get("api/user/get-company-details",id).subscribe(function(res:any) {
-
+      
       console.log("Get compnay details",res);
+     
+      currentClassObj.companyDetails = res;
+      currentClassObj.cdr.detectChanges();
       
-      //this.companyDetails.push(res);
-      console.log(this.companyDetails);
-      
-      
+      console.log("call company details from company profile",self, this.companyDetails);
+     // console.log(this.companyDetails)
+     
       
     });
 
@@ -37,6 +39,15 @@ ngOnInit() {
       
     });
 
+
   }
+
+  ngOnInit() {
+    
+    
+  }
+
+
+
 
 }

@@ -15,7 +15,7 @@ export class CompanyMainComponent implements OnInit {
   
   constructor(private route: ActivatedRoute,private gs: GlobalService) {
 
-    console.log(this.route.snapshot)
+    //console.log(this.route.snapshot)
 
   }
 
@@ -27,11 +27,10 @@ export class CompanyMainComponent implements OnInit {
 
       this.gs.get("api/user/get-company-details",id).subscribe(function(res:any) {
 
-        console.log("Get compnay details",res);
+        //console.log("Get compnay details",res);
         
         this.companyDetails = res;
         
-        this.parentMessage = "I am from india";
         
       });
     });

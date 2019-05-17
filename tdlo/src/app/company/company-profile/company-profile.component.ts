@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy,ChangeDetectorRef, NgZone  } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GlobalService } from 'src/app/services/global.service';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-company-profile',
@@ -15,7 +16,9 @@ export class CompanyProfileComponent implements OnInit {
     name:"Company list will be visible here"
   };
 
-  constructor(private route: ActivatedRoute, private gs: GlobalService, public cdr: ChangeDetectorRef) {
+  empDetails:FormGroup;
+
+  constructor(private route: ActivatedRoute, private gs: GlobalService, public cdr: ChangeDetectorRef, private fb: FormBuilder) {
     
     this.route.url.subscribe(url => {
 
@@ -34,10 +37,24 @@ export class CompanyProfileComponent implements OnInit {
 
     });
 
+    this.empDetails = this.fb.group({
+      fname : new FormControl(''),
+      last : new FormControl(''),
+      designation : new FormControl(''),
+      Experience : new FormControl(''),
+      empMobile : new FormControl('')
+    });
+
   }
 
   ngOnInit() { 
 
   }
+
+  sendDetails(emp) {
+    console.log(emp.value);
+  }
+
+
 
 }

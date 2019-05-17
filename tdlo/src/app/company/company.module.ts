@@ -6,14 +6,15 @@ import { GoodEmployeeComponent } from './good-employee/good-employee.component';
 import { WorstEmployeeComponent } from './worst-employee/worst-employee.component';
 import { CompanyRoutingModule } from './company-routing.module';
 import { CompanyMainComponent } from './company-main/company-main.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [CompanyProfileComponent, CompanyEmployeeComponent, GoodEmployeeComponent, WorstEmployeeComponent, CompanyMainComponent],
   imports: [
     CommonModule,
     FormsModule ,
-    CompanyRoutingModule
+    CompanyRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class CompanyModule { }

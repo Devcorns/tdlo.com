@@ -18,7 +18,12 @@
 </ul>
 
 <p>{{companyDetails.empList}}</p>
+<p>Search Emp</p>
 
+<form (submit)="searchEmployee($event)">
+  <input type="text" placeholder="Search emp by name" name="searchEmployee" />
+  <button type="submit">Search Emp</button>
+</form>
 
 <form [formGroup]="empDetails" (submit)="sendDetails(empDetails)" >
 

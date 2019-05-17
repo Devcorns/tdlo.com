@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ChangeDetectionStrategy,ChangeDetectorRef, Ng
 import { ActivatedRoute } from '@angular/router';
 import { GlobalService } from 'src/app/services/global.service';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { ConsoleReporter } from 'jasmine';
 
 @Component({
   selector: 'app-company-profile',
@@ -17,6 +18,8 @@ export class CompanyProfileComponent implements OnInit {
   };
 
   empDetails:FormGroup;
+
+  empName: String;
 
   constructor(private route: ActivatedRoute, private gs: GlobalService, public cdr: ChangeDetectorRef, private fb: FormBuilder) {
     
@@ -45,14 +48,24 @@ export class CompanyProfileComponent implements OnInit {
       empMobile : new FormControl('')
     });
 
-  }
-
-  ngOnInit() { 
+    
 
   }
 
-  sendDetails(emp) {
+  ngOnInit () { 
+
+  }
+
+  sendDetails (emp) {
     console.log(emp.value);
+    
+  }
+
+  searchEmployee (data) {
+    console.log(data.target.searchEmployee.value);
+    this.gs.get("api/user/search-employee",data.target.searchEmployee.value).subscribe(data=>{
+      console.log(data);
+    })
   }
 
 

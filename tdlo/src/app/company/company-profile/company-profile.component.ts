@@ -2,7 +2,7 @@ import { Component, OnInit, Input, ChangeDetectionStrategy,ChangeDetectorRef, Ng
 import { ActivatedRoute } from '@angular/router';
 import { GlobalService } from 'src/app/services/global.service';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { ConsoleReporter } from 'jasmine';
+
 
 @Component({
   selector: 'app-company-profile',
@@ -40,33 +40,15 @@ export class CompanyProfileComponent implements OnInit {
 
     });
 
-    this.empDetails = this.fb.group({
-      fname : new FormControl(''),
-      last : new FormControl(''),
-      designation : new FormControl(''),
-      Experience : new FormControl(''),
-      empMobile : new FormControl('')
-    });
-
-    
-
   }
 
   ngOnInit () { 
 
   }
 
-  sendDetails (emp) {
-    console.log(emp.value);
-    
-  }
 
-  searchEmployee (data) {
-    console.log(data.target.searchEmployee.value);
-    this.gs.get("api/user/search-employee",data.target.searchEmployee.value).subscribe(data=>{
-      console.log(data);
-    })
-  }
+
+
 
 
 

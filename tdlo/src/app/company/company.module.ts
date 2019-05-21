@@ -7,9 +7,11 @@ import { WorstEmployeeComponent } from './worst-employee/worst-employee.componen
 import { CompanyRoutingModule } from './company-routing.module';
 import { CompanyMainComponent } from './company-main/company-main.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchEmployeeComponent } from './search-employee/search-employee.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
 
 @NgModule({
-  declarations: [CompanyProfileComponent, CompanyEmployeeComponent, GoodEmployeeComponent, WorstEmployeeComponent, CompanyMainComponent],
+  declarations: [CompanyProfileComponent, CompanyEmployeeComponent, GoodEmployeeComponent, WorstEmployeeComponent, CompanyMainComponent, SearchEmployeeComponent, AddEmployeeComponent],
   imports: [
     CommonModule,
     FormsModule ,

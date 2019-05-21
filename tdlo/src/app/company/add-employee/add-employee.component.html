@@ -1,0 +1,33 @@
+<p>Add Employee</p>
+
+<form [formGroup]="empDetails" (submit)="sendDetails(empDetails)" >
+
+  <input 
+    type="text" 
+    formControlName="fname" 
+    placeholder="First Name" />
+
+  <input 
+    type="text" 
+    formControlName="last" 
+    placeholder="Last Name"/>
+
+  <input 
+    type="text" 
+    formControlName="designation" 
+    placeholder="Designation" />
+  
+  <input 
+    type="text" 
+    formControlName="Experience" 
+    placeholder="Experience"/>
+
+  <input 
+    type="text" 
+    formControlName="empMobile" 
+    placeholder="Mobile No with country code"/>
+    
+  <button type="submit" [disabled]=!empDetails.valid>Add Employee</button>
+  
+
+</form>

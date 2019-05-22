@@ -30,7 +30,9 @@ export class AddEmployeeComponent implements OnInit {
   sendDetails (emp) {
 
     console.log(emp.value);
-    this.gs.get('/search-employee','');
+    this.gs.get('api/user/add-employee',emp.value).subscribe(function(data){
+      console.log(data)
+    });
   }
 
 }

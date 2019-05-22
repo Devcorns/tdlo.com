@@ -21,27 +21,32 @@ setCors() {
 get(url,data) {
    
   //  this.setCors(this.headers);
-  //  console.log(this.headers); 
-  console.log("gloabl service",url,typeof data)
+  //  console.log(this.headers);
+
+  console.log("gloabl service",url,typeof data);
+  
   let headers: HttpHeaders = this.setCors();
-  console.log(headers);
+  
+  console.log(headers,"Requested url => ",this.configUrl+url);
 
   return this.http.get(this.configUrl+url,{headers: headers, params:{"search_term": data}});
 
 }
-post(url) {
+
+
+// post(url) {
    
-  //  this.setCors(this.headers);
-  //  console.log(this.headers); 
+//   //  this.setCors(this.headers);
+//   //  console.log(this.headers); 
 
-  let headers: HttpHeaders = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
-  console.log(headers);
-  this.http.get(this.configUrl+url,{headers: headers}).subscribe(function(res) {
+//   let headers: HttpHeaders = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
+//   console.log(headers);
+//   this.http.get(this.configUrl+url,{headers: headers}).subscribe(function(res) {
    
-    console.log("Post Called", res);
+//     console.log("Post Called", res);
 
- })
+//  })
 
-}
+// }
 
 }

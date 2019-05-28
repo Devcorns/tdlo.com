@@ -18,7 +18,8 @@ export class AddEmployeeComponent implements OnInit {
       fname : new FormControl('',[Validators.required,Validators.minLength(3)]),
       last : new FormControl('',[Validators.required,Validators.minLength(2)]),
       designation : new FormControl('',[Validators.required,Validators.minLength(5)]),
-      Experience : new FormControl('',[Validators.required,Validators.minLength(3)]),
+      Experience : new FormControl('',[Validators.required,Validators.minLength(1)]),
+      cntryCode : new FormControl('',[Validators.required,Validators.minLength(1)]),
       empMobile : new FormControl('',[Validators.required,Validators.minLength(6),Validators.maxLength(20)])
 
     });

@@ -24,8 +24,13 @@
 
   <input 
     type="text" 
+    formControlName="cntryCode" 
+    placeholder="Country code"/>
+  
+    <input 
+    type="text" 
     formControlName="empMobile" 
-    placeholder="Mobile No with country code"/>
+    placeholder="Mobile No "/>
     
   <button type="submit" [disabled]=!empDetails.valid>Add Employee</button>
   

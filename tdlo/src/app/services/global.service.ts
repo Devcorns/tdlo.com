@@ -34,19 +34,15 @@ get(url,data) {
 }
 
 
-// post(url) {
+post(url,data) {
    
-//   //  this.setCors(this.headers);
-//   //  console.log(this.headers); 
+  //  this.setCors(this.headers);
+  //  console.log(this.headers); 
+ 
+  let headers: HttpHeaders = new HttpHeaders().set('Access-Control-Allow-Origin', '*').set('Content-Type','application/json');
+  console.log(headers);
+  return this.http.post(this.configUrl+url,data,{headers:headers});
 
-//   let headers: HttpHeaders = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
-//   console.log(headers);
-//   this.http.get(this.configUrl+url,{headers: headers}).subscribe(function(res) {
-   
-//     console.log("Post Called", res);
-
-//  })
-
-// }
+}
 
 }

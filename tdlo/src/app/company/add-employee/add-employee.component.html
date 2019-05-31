@@ -1,7 +1,7 @@
-<p>Add Employee</p>
 
-<form [formGroup]="empDetails" (submit)="sendDetails(empDetails)" >
 
+<form [formGroup]="empDetails" (submit)="sendDetails(empDetails)" *ngIf="userAvailable">
+  <p>Add Employee</p>
   <input 
     type="text" 
     formControlName="fname" 

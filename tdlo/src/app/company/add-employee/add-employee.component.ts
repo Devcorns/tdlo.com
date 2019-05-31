@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { GlobalService } from 'src/app/services/global.service';
+import { AddEmployeeService } from './add-employee.service';
 
 @Component({
   selector: 'app-add-employee',
@@ -10,8 +11,8 @@ import { GlobalService } from 'src/app/services/global.service';
 })
 export class AddEmployeeComponent implements OnInit {
   empDetails: any;
-
-  constructor(private route: ActivatedRoute, private gs: GlobalService, public cdr: ChangeDetectorRef, private fb: FormBuilder) { 
+  userAvailable:boolean = false;
+  constructor(private changeDetection: ChangeDetectorRef, private addEmployeeService: AddEmployeeService, private route: ActivatedRoute, private gs: GlobalService, public cdr: ChangeDetectorRef, private fb: FormBuilder) { 
 
     this.empDetails = this.fb.group({
 
@@ -25,14 +26,22 @@ export class AddEmployeeComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
+ 
 
   sendDetails (emp) {
 
     console.log(emp.value);
-    this.gs.post('api/user/add-employee',emp.value).subscribe(function(data){
+    this.gs.post('api/user/add-employee', emp.value).subscribe(function(data) {
       console.log(data)
+    });
+  }
+
+
+  ngOnInit() {
+    this.addEmployeeService.change.subscribe(isAvailable => {
+      this.userAvailable = isAvailable;
+      console.log(this.userAvailable);
+      this.changeDetection.detectChanges();
     });
   }
 

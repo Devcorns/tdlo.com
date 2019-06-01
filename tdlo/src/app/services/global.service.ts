@@ -35,7 +35,7 @@ get(url,data) {
 
 
 post(url,data) {
-   
+  
   //  this.setCors(this.headers);
   //  console.log(this.headers); 
  

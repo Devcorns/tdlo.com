@@ -21,7 +21,8 @@ export class AddEmployeeComponent implements OnInit {
       designation : new FormControl('',[Validators.required,Validators.minLength(5)]),
       Experience : new FormControl('',[Validators.required,Validators.minLength(1)]),
       cntryCode : new FormControl('',[Validators.required,Validators.minLength(1)]),
-      empMobile : new FormControl('',[Validators.required,Validators.minLength(6),Validators.maxLength(20)])
+      empMobile : new FormControl('',[Validators.required,Validators.minLength(6),Validators.maxLength(20)]),
+      empPik : new FormControl('',[Validators.required])
 
     });
   }
@@ -30,7 +31,7 @@ export class AddEmployeeComponent implements OnInit {
 
   sendDetails (emp) {
 
-    console.log(emp.value);
+    console.log(emp);
     this.gs.post('api/user/add-employee', emp.value).subscribe(function(data) {
       console.log(data)
     });

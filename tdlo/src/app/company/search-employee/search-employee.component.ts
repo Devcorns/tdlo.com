@@ -14,7 +14,7 @@ import { ViewEmployeeService } from '../view-employee/view-employee.service';
 })
 export class SearchEmployeeComponent implements OnInit {
 
-  constructor(private gs: GlobalService,private addEmployeeService: AddEmployeeService, private viewEmployeeService: ViewEmployeeService ) { }
+  constructor(private gs: GlobalService, private addEmployeeService: AddEmployeeService, private viewEmployeeService: ViewEmployeeService ) { }
 
   ngOnInit() {
   }
@@ -23,7 +23,7 @@ export class SearchEmployeeComponent implements OnInit {
     console.log(data.target.searchEmployee.value);
     this.gs.get("api/user/search-employee", data.target.searchEmployee.value).subscribe( (response: Config) => {
       if( response.status ) {
-        console.log("user found",response);
+        console.log("user found", response);
         this.addEmployeeService.isUserAvailable(false);
         this.viewEmployeeService.getUserInfo(response.message);
       } else {

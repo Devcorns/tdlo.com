@@ -1,0 +1,34 @@
+<form [formGroup]="cmpnyDetails" (submit)="sendDetails(cmpnyDetails)">
+
+  <input
+    type="text"
+    placeholder="Company Name"
+    formControlName="companyName"
+  >
+
+  <select >
+    <option *ngFor="let item of companyField"> {{item}}</option>
+  </select>
+   
+  <input
+    type="text"
+    placeholder="Company Mobile no"
+    formControlName="companyMobile"
+  >
+
+  <input
+  type="text"
+  placeholder="Company Address"
+  formControlName="companyAddr"
+  >
+
+  <button
+    type="submit"
+  >
+    Submit
+  </button>
+
+</form>
+
+
+

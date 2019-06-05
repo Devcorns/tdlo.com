@@ -6,15 +6,50 @@
     formControlName="companyName"
   >
 
-  <select >
-    <option *ngFor="let item of companyField"> {{item}}</option>
+  <select formControlName="comapnyCategory">
+    <option [value]="i" *ngFor="let item of companyField;let i = index"> {{item}}</option>
   </select>
+
+  
+  <input type="radio" formControlName="choosePhone" value="0" (change)="radioChange(0)"  > Phone Number 
+  <input type="radio" formControlName="choosePhone" value="1" (change)="radioChange(1)" > Mobile Number
+  <input type="radio" formControlName="choosePhone" value="2" (change)="radioChange(2)" > Both 
+
    
   <input
     type="text"
-    placeholder="Company Mobile no"
-    formControlName="companyMobile"
+    placeholder="Country code"
+    formControlName="countryCode"
   >
+<br>
+  -------------------or--------------------
+<div *ngIf="noMobile">
+  <input
+    type="text"
+    placeholder="Country code"
+    formControlName="stateCode"
+  > 
+
+  <input
+    type="text"
+    placeholder="Company Mobile no"
+    formControlName="phoneNo"
+  >
+</div>
+
+
+  -------------------or--------------------
+<br>
+
+
+<div *ngIf="noPhone">
+    <input
+    type="text"
+    placeholder="Company Mobile no"
+    formControlName="mobileNo"
+  >
+
+</div>
 
   <input
   type="text"

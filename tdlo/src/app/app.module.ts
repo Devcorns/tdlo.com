@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +27,7 @@ import { CompanySearchListComponent } from './home/company-search-list/company-s
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AngularFontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

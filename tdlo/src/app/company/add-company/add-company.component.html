@@ -1,4 +1,4 @@
-<form [formGroup]="cmpnyDetails" (submit)="sendDetails(cmpnyDetails)">
+<form [formGroup]="cmpnyDetails" (submit)="sendDetails(cmpnyDetails)" >
 
   <input
     type="text"
@@ -10,10 +10,10 @@
     <option [value]="i" *ngFor="let item of companyField;let i = index"> {{item}}</option>
   </select>
 
-  
+<!--   
   <input type="radio" formControlName="choosePhone" value="0" (change)="radioChange(0)"  > Phone Number 
   <input type="radio" formControlName="choosePhone" value="1" (change)="radioChange(1)" > Mobile Number
-  <input type="radio" formControlName="choosePhone" value="2" (change)="radioChange(2)" > Both 
+  <input type="radio" formControlName="choosePhone" value="2" (change)="radioChange(2)" > Both  -->
 
    
   <input
@@ -65,5 +65,16 @@
 
 </form>
 
-
+<form [formGroup]="personalForm" (click)="getVal()">
+    <div class="" formArrayName="other" *ngFor="let other of personalForm.get('other').controls; let i = index">
+      <div class="input-group" [formGroupName]="i" style="margin-bottom:20px;" >
+        <span style="border:1px solid #f00;width:20px;background:#f00" (click)="removeElem( i )" class="input-group-addon">{{i}}</span>
+        <input id="email" type="text" class="form-control" name="email" placeholder="Email" formControlName="education">
+      </div>
+    </div>
+    <button type="button"  (click)="addButtonClick()">  
+        Add Other Details  
+    </button>
+    <button type="submit" ></button>
+</form>
 

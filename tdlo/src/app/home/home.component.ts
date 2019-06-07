@@ -4,6 +4,7 @@ import { GlobalService } from '../services/global.service';
 import { createHostListener } from '@angular/compiler/src/core';
 import { isArray } from 'util';
 import { forEach } from '@angular/router/src/utils/collection';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,7 @@ export class HomeComponent implements OnInit {
 
 
 
-  constructor(private fb:FormBuilder,private gs:GlobalService) {
+  constructor(private fb:FormBuilder,private gs:GlobalService, private router: Router) {
     
     this.companyProfileForm  =  this.fb.group({
       compnyName:['',Validators.required]
@@ -60,6 +61,11 @@ export class HomeComponent implements OnInit {
       console.log("select Company",res)
     });
   
+  }
+
+  addComapny() {
+    console.log(this.companyProfileForm.value.compnyName)
+    this.router.navigateByUrl("/company/add-comapany");
   }
 
 }

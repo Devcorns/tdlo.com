@@ -31,9 +31,12 @@
         
         </ul>
           
-        <ul *ngIf="!companyList.length">
+        <ul *ngIf="!companyList.length" class="company-list" >
         
-            <li> Not Available </li>
+            <li> Add New Company</li>
+            <button class="add-comapny" (click)="addComapny()">
+              <i class="fa fa-plus"></i>
+            </button>
         
         </ul>
 

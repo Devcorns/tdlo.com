@@ -10,11 +10,13 @@ import { Config } from 'protractor';
 })
 export class AddCompanyComponent implements OnInit {
 
-  companyField = ['IT Industry', 'Accounting', 'C', 'D'];
+  companyField = ['IT Industry', 'Accounting', 'Other'];
   cmpnyDetails:FormGroup;
   personalForm:FormGroup;
   noMobile=false;
   noPhone=false;
+  category:Number;
+  status:String;
 
 
   
@@ -26,9 +28,7 @@ export class AddCompanyComponent implements OnInit {
 
       comapnyCategory:new FormControl('',[Validators.required]),
 
-      mobileNo: new FormControl('',[Validators.required, Validators.minLength(6)]),
-
-      phoneNo: new FormControl('',[Validators.required, Validators.minLength(6)]),
+      contactNo: new FormControl('',[Validators.required, Validators.minLength(6), Validators.maxLength(15)]),
 
       companyAddr: new FormControl('',[Validators.required, Validators.minLength(10)]),
 
@@ -36,58 +36,67 @@ export class AddCompanyComponent implements OnInit {
 
       stateCode :new FormControl('',[Validators.required, Validators.minLength(1)]),
 
-      choosePhone:new FormControl('')
+      // choosePhone:new FormControl('')
 
     })
 
-    this.personalForm = this.fb.group({
-      other: this.fb.array([])
-    });
+    // this.personalForm = this.fb.group({
+    //   other: this.fb.array([])
+    // });
+
+    this.category = 1;
+
 
   }
 
   ngOnInit() {
+    
   }
 
   sendDetails(cmpnyDetails) {
     console.log(cmpnyDetails.value);
-    this.gs.post("api/user/addCompanyProfile", cmpnyDetails.value).subscribe(( data:Config )=>{
+    this.gs.post("api/user/addCompanyProfile", cmpnyDetails.value).subscribe(( data: Config ) => { 
       console.log(data);
+      if(data.exist){
+        this.status = "Company Already Registered";
+      } else {
+        this.status = "Company Registered";
+      }
     });
   }
 
-  radioChange(data) {
-    console.log(data);
-    if( data==0 ) {
-      this.noMobile = false;
-      this.noPhone = true;
-    } else if (data == 1) {
-      this.noMobile = true;
-      this.noPhone = false;
-    } else {
-      this.noPhone = true;
-      this.noMobile = true;
-    }
-  }
+  // radioChange(data) {
+  //   console.log(data);
+  //   if( data==0 ) {
+  //     this.noMobile = false;
+  //     this.noPhone = true;
+  //   } else if (data == 1) {
+  //     this.noMobile = true;
+  //     this.noPhone = false;
+  //   } else {
+  //     this.noPhone = true;
+  //     this.noMobile = true;
+  //   }
+  // }
 
-  addOtherSkillFormGroup(): FormGroup {  
-    return this.fb.group({  
-      education: ['', Validators.required],  
-    });  
-  }  
+  // addOtherSkillFormGroup(): FormGroup {  
+  //   return this.fb.group({  
+  //     education: ['', Validators.required],  
+  //   });  
+  // }  
 
-  addButtonClick():any {  
-    (<FormArray>this.personalForm.get('other')).push(this.addOtherSkillFormGroup());
-  }
+  // addButtonClick():any {  
+  //   (<FormArray>this.personalForm.get('other')).push(this.addOtherSkillFormGroup());
+  // }
 
-  getVal() {
-    console.log(this.personalForm.value)
-  }
+  // getVal() {
+  //   console.log(this.personalForm.value)
+  // }
 
-  removeElem( data) {
-    (<FormArray>this.personalForm.get('other')).removeAt(data);
+  // removeElem( data) {
+  //   (<FormArray>this.personalForm.get('other')).removeAt(data);
 
-  }
+  // }
 
 
 

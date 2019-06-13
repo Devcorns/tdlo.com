@@ -34,9 +34,10 @@ export class HomeComponent implements OnInit {
   // }
 
    valueChange(val) {
+     console.log("Value Change Function",val)
     const currentClassObject = this;
     currentClassObject.companyList = [];
-      this.gs.get("api/user/companyList",val.toUpperCase()).subscribe(function(res:any) {
+      this.gs.get("api/user/companyList", val).subscribe( function( res: any ) {
         
         console.log("Gets Called", isArray(res),res.length);
         

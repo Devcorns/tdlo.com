@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit {
 
   addComapny() {
     console.log(this.companyProfileForm.value.compnyName)
-    this.router.navigateByUrl("/company/add-comapany");
+    this.router.navigateByUrl("/company/add-company");
   }
 
 }

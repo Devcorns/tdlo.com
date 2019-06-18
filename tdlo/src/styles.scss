@@ -7,62 +7,55 @@ body {
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800');
 
-body{
+body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
 }
-
 
 /**
 default properties
 */
 
-.section-shadow{
+.section-shadow {
     box-shadow: 0 3px 21px rgba(95, 95, 95, 0.06), 0 3px 21px rgba(0, 0, 0, 0.09);
     overflow: hidden;
     margin-bottom:40px;
 }
 
-.section-default{
+.section-default {
     padding:40px 50px ;
-    
 }
 
-section .section-heading{
+section .section-heading {
     font-size:20px;
-    
     margin:0;
     margin-bottom:30px;
 }
 
-
-.btn-theme-blue{
+.btn-theme-blue {
     background: #0099ff;
-    
     color:#fff;
 }
 
-.btn-theme-green{
+.btn-theme-green {
     background: #009966;
-    
     color:#fff;
 }
-a[class*='btn-theme-']{
+
+a[class*='btn-theme-'] {
     padding:20px;
 }
 
-
-.input-group input,.input-group .btn{
+.input-group input,.input-group .btn {
     border-radius: 0;
-    border:1px solid #ddd;
-    
-    
-    
+    border:1px solid #ddd;    
 }
-.input-group input:focus{
+
+.input-group input:focus {
     border-color:#ddd;
     box-shadow: none;
 }
+
 /* .input-group input,.input-group .btn{
     height:48px;
     min-width:80px;
@@ -75,75 +68,63 @@ a[class*='btn-theme-']{
 rating stars
 */
 
-
 .rating-stars {
     padding:10px 0;
 }
-.rating-stars i{
+
+.rating-stars i {
     font-size: 18px;
     margin-right:5px;
-
 }
-
-
-
-
-
 
 /*
 employee boxes
-**/
+*/
 
-
-
-
-
-.emp-worst .rating-stars,.emp-good .rating-stars{
+.emp-worst .rating-stars,.emp-good .rating-stars {
     padding: 0;
 }
 
-.emp-container{
+.emp-container {
 
 }
-.emp-container a{
+
+.emp-container a {
     color:#ddd;
 }
-.emp-container .emp-item{
+
+.emp-container .emp-item {
     border:1px solid #ddd;
     overflow: hidden;
     padding:10px;
     margin-bottom:20px;
 }
-.emp-container .emp-item img{
+
+.emp-container .emp-item img {
     max-width:60px;
 }
 
-.emp-container .emp-item .emp-name{
+.emp-container .emp-item .emp-name {
     font-size:16px;
     color: #000;
 }
-.emp-container .emp-item .emp-position{
+.emp-container .emp-item .emp-position {
     margin-bottom:3px;
     font-size:12px;
     color:#7c7c7c;
 }
 
-.emp-container .emp-item .rating-stars i{
+.emp-container .emp-item .rating-stars i {
     font-size:14px;
 }
 
-
-
-.emp-worst .rating-stars i{
+.emp-worst .rating-stars i {
     color:#e8676b;
-    
 }
 
-
-.emp-good .rating-stars i{
+.emp-good .rating-stars i {
     color:#35ef28;
 }
-
 
 .add-comapny {
     width:70px;

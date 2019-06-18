@@ -11,9 +11,10 @@ import { SearchEmployeeComponent } from './search-employee/search-employee.compo
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { ViewEmployeeComponent } from './view-employee/view-employee.component';
 import { AddCompanyComponent } from './add-company/add-company.component';
+import { CompanyLayoutComponent } from '../layout/company-layout/company-layout.component';
 
 @NgModule({
-  declarations: [CompanyProfileComponent, CompanyEmployeeComponent, GoodEmployeeComponent, WorstEmployeeComponent, CompanyMainComponent, SearchEmployeeComponent, AddEmployeeComponent, ViewEmployeeComponent, AddCompanyComponent],
+  declarations: [CompanyProfileComponent, CompanyEmployeeComponent, GoodEmployeeComponent, WorstEmployeeComponent, CompanyMainComponent, SearchEmployeeComponent, AddEmployeeComponent, ViewEmployeeComponent, AddCompanyComponent, CompanyLayoutComponent],
   imports: [
     CommonModule,
     FormsModule ,

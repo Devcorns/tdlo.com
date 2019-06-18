@@ -16,12 +16,15 @@ import { CompanySearchListComponent } from './home/company-search-list/company-s
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CommonComponentsComponent,
     CompanySearchListComponent,
+   
 
   ],
   imports: [

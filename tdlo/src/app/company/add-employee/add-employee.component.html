@@ -1,6 +1,7 @@
 
 
-<form [formGroup]="empDetails" (submit)="sendDetails(empDetails)" *ngIf="userAvailable">
+
+<form [formGroup]="empDetails" (submit)="sendDetails(empDetails)" >
   <p>Add Employee</p>
   <input 
     type="text" 
@@ -20,7 +21,7 @@
   <input 
     type="text" 
     formControlName="Experience" 
-    placeholder="Experience"/>
+    placeholder="Experience in number"/>
 
   <input 
     type="text" 
@@ -31,6 +32,12 @@
     type="text" 
     formControlName="empMobile" 
     placeholder="Mobile No "/>
+
+
+    <input 
+    type="number" 
+    formControlName="rating" 
+    placeholder="Rate b/w 1 to 5"/>
 
     <!-- <input 
     type="file" 

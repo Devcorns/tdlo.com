@@ -32,9 +32,12 @@ export class CompanyProfileComponent implements OnInit {
       this.gs.get("api/user/get-company-details", id).subscribe(function(res: any) {
       
         console.log("Get compnay details", res);
-        currentClassObj.companyDetails = res;
-        currentClassObj.cdr.detectChanges();
-        console.log("call company details from company profile", currentClassObj, currentClassObj.companyDetails);
+          
+          currentClassObj.companyDetails = res;
+          currentClassObj.cdr.detectChanges();
+          console.log("call company details from company profile", currentClassObj, currentClassObj.companyDetails);
+        
+        
       
       });
 

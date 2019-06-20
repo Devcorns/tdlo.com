@@ -11,9 +11,10 @@ import { AddEmployeeService } from './add-employee.service';
 })
 export class AddEmployeeComponent implements OnInit {
   empDetails: any;
-  userAvailable:boolean = false;
-  constructor(private changeDetection: ChangeDetectorRef, private addEmployeeService: AddEmployeeService, private route: ActivatedRoute, private gs: GlobalService, public cdr: ChangeDetectorRef, private fb: FormBuilder) { 
-
+  isEmployeeRegister:any = {};
+  
+  constructor( private addEmployeeService: AddEmployeeService, private route: ActivatedRoute, private gs: GlobalService, public cdr: ChangeDetectorRef, private fb: FormBuilder) { 
+    
     this.empDetails = this.fb.group({
 
       fname : new FormControl('',[Validators.required,Validators.minLength(3)]),
@@ -22,7 +23,7 @@ export class AddEmployeeComponent implements OnInit {
       Experience : new FormControl('',[Validators.required,Validators.minLength(1)]),
       cntryCode : new FormControl('',[Validators.required,Validators.minLength(1)]),
       empMobile : new FormControl('',[Validators.required,Validators.minLength(6),Validators.maxLength(20)]),
-      //empPik : new FormControl('',[Validators.required])
+      rating : new FormControl('',[Validators.required])
 
     });
   }
@@ -33,17 +34,14 @@ export class AddEmployeeComponent implements OnInit {
 
     console.log(emp);
     this.gs.post('api/user/add-employee', emp.value).subscribe(function(data) {
-      console.log(data)
+      this.isEmployeeRegister = data;
+      console.log(this.isEmployeeRegister);
     });
   }
 
 
   ngOnInit() {
-    this.addEmployeeService.change.subscribe(isAvailable => {
-      this.userAvailable = isAvailable;
-      console.log(this.userAvailable);
-      this.changeDetection.detectChanges();
-    });
+   
   }
 
 }

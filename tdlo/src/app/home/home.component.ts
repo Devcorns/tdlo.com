@@ -36,30 +36,34 @@ export class HomeComponent implements OnInit {
    valueChange(val) {
      console.log("Value Change Function",val)
     const currentClassObject = this;
-    currentClassObject.companyList = [];
+      
       this.gs.get("api/user/companyList", val).subscribe( function( res: any ) {
         
         console.log("Gets Called", isArray(res),res.length);
         
         if(res.length) {
-          
+          currentClassObject.companyList = [];
           for(let i =0;i<res.length;i++) {
             
             currentClassObject.companyList.push(res[i]);
 
           }
+          console.log("I am in else part of home component valuechange function")
   
+        } else {
+          currentClassObject.companyList = [];
+          console.log("I am in else part of home component valuechange function")
         }
        
          
       });
   }
 
-  selectCompany( data, id) {
+  selectCompany( data, id ) {
 
-    console.log(data.target,id);
-    this.gs.get("api/user/get-company-details",id).subscribe(function(res:any) {
-      console.log("select Company",res)
+    console.log(data.target, id);
+    this.gs.get("api/user/get-company-details",id).subscribe(function(res: any) {
+      console.log("select Company", res)
     });
   
   }
